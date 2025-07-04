@@ -1,0 +1,109 @@
+﻿<Window x:Class="VideoControl.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VideoControl"
+        mc:Ignorable="d"
+        Title="VideoControl" Height="809.1" Width="1590.885" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid>
+
+        <Button x:Name="btnVid1" Content="Select Files Video 1" HorizontalAlignment="Left" Margin="30,19,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnVid1_Click"/>
+        <Button x:Name="btnVid1_Clr" Content="Clear Files Video 1" HorizontalAlignment="Left" Margin="30,82,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnVid1_Clr_Click"/>
+        <Button x:Name="btnImage1" Content="Select Logo 1" HorizontalAlignment="Left" Margin="30,145,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnImage1_Click"/>
+        <TextBlock x:Name="txtFiles1" HorizontalAlignment="Left" Margin="309,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="252" Width="455" Text="no files" DragEnter="txtFiles1_DragEnter" Drop="txtFiles1_Drop" AllowDrop="True"/>
+        <Button x:Name="btnVid1_Start" Content="Start Video 1" HorizontalAlignment="Left" Margin="30,225,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnVid1_Start_Click"/>
+        <Button x:Name="btnVid2" Content="Select Files Video 2" HorizontalAlignment="Left" Margin="30,344,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnVid2_Click"/>
+        <Button x:Name="btnVid2_Clr" Content="Clear Files Video 2" HorizontalAlignment="Left" Margin="30,407,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnVid2_Clr_Click"/>
+        <TextBlock x:Name="txtFiles2" HorizontalAlignment="Left" Margin="309,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="252" Width="455" Text="no files" DragEnter="txtFiles2_DragEnter" AllowDrop="True" Drop="txtFiles2_Drop"/>
+        <Button x:Name="btnVid2_Start" Content="Start Video 2" HorizontalAlignment="Left" Margin="30,554,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnVid2_Start_Click"/>
+        <Button x:Name="btnStop" Content="Stop all Videos" HorizontalAlignment="Left" Margin="285,666,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnStop_Click"/>
+        <Button x:Name="btnLogos" Content="Play Logos" HorizontalAlignment="Left" Margin="538,666,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnLogos_Click"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="268" Margin="290,344,0,0" VerticalAlignment="Top" Width="474"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="269" Margin="290,19,0,0" VerticalAlignment="Top" Width="474"/>
+        <Button x:Name="btnVid2_Start_all" Content="Start all Videos" HorizontalAlignment="Left" Margin="30,666,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnVid2_Start_all_Click"/>
+        <Label x:Name="label" Content="VideoControl V 1.2 by Lars* Kollros" HorizontalAlignment="Left" Margin="588,744,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cmbSound1" HorizontalAlignment="Left" Margin="379,293,0,0" VerticalAlignment="Top" Width="248" SelectionChanged="cmbSound1_SelectionChanged"/>
+        <Label x:Name="label1" Content="Sound device:" HorizontalAlignment="Left" Margin="290,289,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.518,-0.231"/>
+        <ComboBox x:Name="cmbSound2" HorizontalAlignment="Left" Margin="379,617,0,0" VerticalAlignment="Top" Width="248" SelectionChanged="cmbSound2_SelectionChanged"/>
+        <Label x:Name="label1_Copy" Content="Sound device:" HorizontalAlignment="Left" Margin="290,612,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.518,-0.231"/>
+        <CheckBox x:Name="chkEnabled1" Content="enable Video 1" HorizontalAlignment="Left" Margin="662,295,-9,0" VerticalAlignment="Top" Checked="chkEnabled1_Checked" Unchecked="chkEnabled1_Checked"/>
+        <CheckBox x:Name="chkEnabled2" Content="enable Video 2" HorizontalAlignment="Left" Margin="662,618,0,0" VerticalAlignment="Top" Checked="chkEnabled2_Checked" Unchecked="chkEnabled2_Checked"/>
+        <Button x:Name="btnImage2" Content="Select Logo 2" HorizontalAlignment="Left" Margin="30,470,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnImage2_Click"/>
+        <Label x:Name="label2" Content="Logo 1:" HorizontalAlignment="Left" Margin="44,313,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblLogo1" Content="" HorizontalAlignment="Left" Margin="98,313,0,0" VerticalAlignment="Top" Width="663"/>
+        <Label x:Name="label3b" Content="Logo 2:" HorizontalAlignment="Left" Margin="44,638,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblLogo2" Content="" HorizontalAlignment="Left" Margin="98,638,0,0" VerticalAlignment="Top" Width="663"/>
+        <Grid HorizontalAlignment="Left" Height="48" Margin="10,740,0,0" VerticalAlignment="Top" Width="573">
+            <RadioButton x:Name="radNone" Content="No automatic start" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="radVideo" Content="Start videos on startup" HorizontalAlignment="Left" Margin="161,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.092,0.316"/>
+            <RadioButton x:Name="radLogo" Content="Start logos on startup" HorizontalAlignment="Left" Margin="319,10,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <Button x:Name="btnVid3" Content="Select Files Video 3" HorizontalAlignment="Left" Margin="816,19,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnVid3_Click"/>
+        <Button x:Name="btnVid3_Clr" Content="Clear Files Video 3" HorizontalAlignment="Left" Margin="816,82,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnVid3_Clr_Click"/>
+        <Button x:Name="btnImage3" Content="Select Logo 3" HorizontalAlignment="Left" Margin="816,145,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnImage3_Click"/>
+        <TextBlock x:Name="txtFiles3" HorizontalAlignment="Left" Margin="1095,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="252" Width="455" Text="no files" DragEnter="txtFiles3_DragEnter" Drop="txtFiles3_Drop" AllowDrop="True"/>
+        <Button x:Name="btnVid3_Start" Content="Start Video 3" HorizontalAlignment="Left" Margin="816,225,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnVid3_Start_Click"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="269" Margin="1076,19,0,0" VerticalAlignment="Top" Width="474"/>
+        <ComboBox x:Name="cmbSound3" HorizontalAlignment="Left" Margin="1165,293,0,0" VerticalAlignment="Top" Width="248" SelectionChanged="cmbSound3_SelectionChanged"/>
+        <Label x:Name="label3" Content="Sound device:" HorizontalAlignment="Left" Margin="1076,289,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.518,-0.231"/>
+        <CheckBox x:Name="chkEnabled3" Content="enable Video 3" HorizontalAlignment="Left" Margin="1448,295,0,0" VerticalAlignment="Top" Checked="chkEnabled3_Checked" Unchecked="chkEnabled3_Checked"/>
+        <Label x:Name="label3a" Content="Logo 3:" HorizontalAlignment="Left" Margin="830,313,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblLogo3" Content="" HorizontalAlignment="Left" Margin="884,313,0,0" VerticalAlignment="Top" Width="663"/>
+        <Button x:Name="btnVid4" Content="Select Files Video 4" HorizontalAlignment="Left" Margin="816,344,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnVid4_Click"/>
+        <Button x:Name="btnVid4_Clr" Content="Clear Files Video 4" HorizontalAlignment="Left" Margin="816,407,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnVid4_Clr_Click"/>
+        <Button x:Name="btnImage4" Content="Select Logo 4" HorizontalAlignment="Left" Margin="816,470,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnImage4_Click"/>
+        <TextBlock x:Name="txtFiles4" HorizontalAlignment="Left" Margin="1095,361,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="252" Width="455" Text="no files" DragEnter="txtFiles4_DragEnter" Drop="txtFiles4_Drop" AllowDrop="True"/>
+        <Button x:Name="btnVid4_Start" Content="Start Video 4" HorizontalAlignment="Left" Margin="816,550,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnVid4_Start_Click"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="269" Margin="1076,344,0,0" VerticalAlignment="Top" Width="474"/>
+        <ComboBox x:Name="cmbSound4" HorizontalAlignment="Left" Margin="1165,618,0,0" VerticalAlignment="Top" Width="248" SelectionChanged="cmbSound4_SelectionChanged"/>
+        <Label x:Name="label4" Content="Sound device:" HorizontalAlignment="Left" Margin="1076,614,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.518,-0.231"/>
+        <CheckBox x:Name="chkEnabled4" Content="enable Video 4" HorizontalAlignment="Left" Margin="1448,620,0,0" VerticalAlignment="Top" Checked="chkEnabled4_Checked" Unchecked="chkEnabled4_Checked"/>
+        <Label x:Name="label5" Content="Logo 4:" HorizontalAlignment="Left" Margin="830,638,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblLogo4" Content="" HorizontalAlignment="Left" Margin="884,638,0,0" VerticalAlignment="Top" Width="663"/>
+        <Label x:Name="label6" Content="Rotation:" HorizontalAlignment="Left" Margin="44,289,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,-0.269"/>
+        <ComboBox x:Name="cmbRot1" HorizontalAlignment="Left" Margin="120,293,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbRot1_SelectionChanged">
+            <ComboBoxItem Content="none"/>
+            <ComboBoxItem Content="90"/>
+            <ComboBoxItem Content="180"/>
+            <ComboBoxItem Content="270"/>
+            <ComboBoxItem Content="hflip"/>
+            <ComboBoxItem Content="vflip"/>
+        </ComboBox>
+        <Label x:Name="label6_Copy" Content="Rotation:" HorizontalAlignment="Left" Margin="824,289,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,-0.269"/>
+        <ComboBox x:Name="cmbRot3" HorizontalAlignment="Left" Margin="900,293,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbRot3_SelectionChanged_1">
+            <ComboBoxItem Content="none"/>
+            <ComboBoxItem Content="90"/>
+            <ComboBoxItem Content="180"/>
+            <ComboBoxItem Content="270"/>
+            <ComboBoxItem Content="hflip"/>
+            <ComboBoxItem Content="vflip"/>
+        </ComboBox>
+        <Label x:Name="label6_Copy1" Content="Rotation:" HorizontalAlignment="Left" Margin="44,613,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,-0.269"/>
+        <ComboBox x:Name="cmbRot2" HorizontalAlignment="Left" Margin="120,617,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbRot3_SelectionChanged">
+            <ComboBoxItem Content="none"/>
+            <ComboBoxItem Content="90"/>
+            <ComboBoxItem Content="180"/>
+            <ComboBoxItem Content="270"/>
+            <ComboBoxItem Content="hflip"/>
+            <ComboBoxItem Content="vflip"/>
+        </ComboBox>
+        <Label x:Name="label6_Copy2" Content="Rotation:" HorizontalAlignment="Left" Margin="824,616,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,-0.269"/>
+        <ComboBox x:Name="cmbRot4" HorizontalAlignment="Left" Margin="900,620,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbRot4_SelectionChanged">
+            <ComboBoxItem Content="none"/>
+            <ComboBoxItem Content="90"/>
+            <ComboBoxItem Content="180"/>
+            <ComboBoxItem Content="270"/>
+            <ComboBoxItem Content="hflip"/>
+            <ComboBoxItem Content="vflip"/>
+        </ComboBox>
+        <CheckBox x:Name="chkToggle" Content="toggle sound" HorizontalAlignment="Left" Margin="824,709,0,0" VerticalAlignment="Top" Checked="chkToggle_Checked" Unchecked="chkToggle_Unchecked"/>
+        <Label x:Name="label7" Content="Toggletime:" HorizontalAlignment="Left" Margin="821,729,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.355,1.058"/>
+        <TextBox x:Name="txtTime" HorizontalAlignment="Left" Height="23" Margin="893,733,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" LostFocus="txtTime_LostFocus"/>
+        <ComboBox x:Name="cmbSound1a" HorizontalAlignment="Left" Margin="379,317,0,0" VerticalAlignment="Top" Width="248" SelectionChanged="cmbSound1a_SelectionChanged"/>
+        <ComboBox x:Name="cmbSound3a" HorizontalAlignment="Left" Margin="1165,317,0,0" VerticalAlignment="Top" Width="248" SelectionChanged="cmbSound3a_SelectionChanged"/>
+        <ComboBox x:Name="cmbSound4a" HorizontalAlignment="Left" Margin="1165,640,0,0" VerticalAlignment="Top" Width="248" SelectionChanged="cmbSound4a_SelectionChanged"/>
+        <ComboBox x:Name="cmbSound2a" HorizontalAlignment="Left" Margin="379,640,0,0" VerticalAlignment="Top" Width="248" SelectionChanged="cmbSound2a_SelectionChanged"/>
+
+    </Grid>
+</Window>
