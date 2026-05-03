@@ -103,8 +103,13 @@ namespace VideoControl
         {
             if (chkEnabled1.IsChecked == true)
             {
+                string stSounddevice = "";
+                if (cmbSound1.SelectedValue != null)
+                { 
+                    stSounddevice = cmbSound1.SelectedValue.ToString(); 
+                }
                 string stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
-                string stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound1.SelectedValue.ToString() + "\" --loop  --fullscreen --qt-fullscreen-screennumber=1";
+                string stTemp = " --aout=waveout --waveout-audio-device=\"" + stSounddevice + "\" --loop  --fullscreen --qt-fullscreen-screennumber=0";
                 if (cmbRot1.Text != "none")
                 {
                     stTemp += " :vout-filter=transform --video-filter \"transform{ true}\" --transform-type=" + cmbRot1.Text;
@@ -235,8 +240,13 @@ namespace VideoControl
         {
             if (chkEnabled2.IsChecked == true)
             {
+                string stSounddevice = "";
+                if (cmbSound2.SelectedValue != null)
+                {
+                    stSounddevice = cmbSound2.SelectedValue.ToString();
+                }
                 string stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
-                string stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound2.SelectedValue.ToString() + "\" --loop  --fullscreen --qt-fullscreen-screennumber=2";
+                string stTemp = " --aout=waveout --waveout-audio-device=\"" + stSounddevice + "\" --loop  --fullscreen --qt-fullscreen-screennumber=1";
                 if (cmbRot2.Text != "none")
                 {
                     stTemp += " :vout-filter=transform --video-filter \"transform{ true}\" --transform-type=" + cmbRot2.Text;
@@ -256,22 +266,22 @@ namespace VideoControl
         {
             if (stLogo1 != "")
             {
-                l1 = new Logo(stLogo1, 2);
+                l1 = new Logo(stLogo1, 1);
                 l1.Show();
             }
             if (stLogo2 != "")
             {
-                l2 = new Logo(stLogo2, 0);
+                l2 = new Logo(stLogo2, 2);
                 l2.Show();
             }
             if (stLogo3 != "")
             {
-                l3 = new Logo(stLogo3, 0);
+                l3 = new Logo(stLogo3, 3);
                 l3.Show();
             }
             if (stLogo4 != "")
             {
-                l4 = new Logo(stLogo4, 0);
+                l4 = new Logo(stLogo4, 4);
                 l4.Show();
             }
         }
@@ -357,10 +367,10 @@ namespace VideoControl
         private void StartAllVideos()
         {
             string stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
-            string stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound2.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=2";
+            string stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound1.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=0  --directx-device=\"\\\\.\\DISPLAY0\" ";
             if ((chkToggle.IsChecked == true) && iTurn % 2 == 1)
             {
-                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound2a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=2";
+                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound1a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=0  --directx-device=\"\\\\.\\DISPLAY0\" ";
             }
 
             if (cmbRot2.Text != "none")
@@ -380,10 +390,10 @@ namespace VideoControl
                 Process.Start(startInfo);
             }
             stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
-            stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound1.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=1";
+            stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound2.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=1 --directx-device=\"\\\\.\\DISPLAY1\" ";
             if ((chkToggle.IsChecked == true) && iTurn % 2 == 1)
             {
-                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound1a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=1";
+                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound2a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=1 --directx-device=\"\\\\.\\DISPLAY1\" ";
             }
 
             if (cmbRot1.Text != "none")
@@ -402,10 +412,10 @@ namespace VideoControl
                 Process.Start(startInfo);
             }
             stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
-            stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound3.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=3";
+            stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound3.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=2 --directx-device=\"\\\\.\\DISPLAY2\" ";
             if ((chkToggle.IsChecked == true) && iTurn % 2 == 1)
             {
-                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound3a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=3";
+                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound3a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=2 --directx-device=\"\\\\.\\DISPLAY2\" ";
             }
 
             if (cmbRot3.Text != "none")
@@ -424,10 +434,10 @@ namespace VideoControl
                 Process.Start(startInfo);
             }
             stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
-            stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound4.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=4";
+            stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound4.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=3 --directx-device=\"\\\\.\\DISPLAY3\" ";
             if ((chkToggle.IsChecked == true) && iTurn % 2 == 1)
             {
-                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound4a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=4";
+                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound4a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=3 --directx-device=\"\\\\.\\DISPLAY3\" ";
             }
 
             if (cmbRot4.Text != "none")
@@ -545,8 +555,8 @@ namespace VideoControl
                 stLogo4 = Properties.Settings.Default.Logo4;
                 lblLogo1.Content = stLogo1;
                 lblLogo2.Content = stLogo2;
-                lblLogo2.Content = stLogo3;
-                lblLogo2.Content = stLogo4;
+                lblLogo3.Content = stLogo3;
+                lblLogo4.Content = stLogo4;
                 iAuto = Properties.Settings.Default.Autostart;
                 if (iAuto == VIDEO)
                 {
@@ -758,7 +768,7 @@ namespace VideoControl
                     {
                         stLogo3 = st;
                     }
-                    lblLogo1.Content = stLogo3;
+                    lblLogo3.Content = stLogo3;
                     Properties.Settings.Default.Logo3 = stLogo3;
                     Properties.Settings.Default.Save();
                     Properties.Settings.Default.Upgrade();
@@ -768,10 +778,15 @@ namespace VideoControl
 
         private void btnVid3_Start_Click(object sender, RoutedEventArgs e)
         {
+            string stSounddevice = "";
+            if (cmbSound3.SelectedValue != null)
+            {
+                stSounddevice = cmbSound3.SelectedValue.ToString();
+            }
             if (chkEnabled2.IsChecked == true)
             {
                 string stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
-                string stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound3.SelectedValue.ToString() + "\" --loop  --fullscreen --qt-fullscreen-screennumber=3";
+                string stTemp = " --aout=waveout --waveout-audio-device=\"" + stSounddevice + "\" --loop  --fullscreen --qt-fullscreen-screennumber=2";
                 if (cmbRot3.Text != "none")
                 {
                     stTemp += " :vout-filter=transform --video-filter \"transform{ true}\" --transform-type=" + cmbRot3.Text;
@@ -857,7 +872,7 @@ namespace VideoControl
                     {
                         stLogo4 = st;
                     }
-                    lblLogo1.Content = stLogo4;
+                    lblLogo4.Content = stLogo4;
                     Properties.Settings.Default.Logo4 = stLogo4;
                     Properties.Settings.Default.Save();
                     Properties.Settings.Default.Upgrade();
@@ -867,10 +882,15 @@ namespace VideoControl
 
         private void btnVid4_Start_Click(object sender, RoutedEventArgs e)
         {
+            string stSounddevice = "";
+            if (cmbSound4.SelectedValue != null)
+            {
+                stSounddevice = cmbSound4.SelectedValue.ToString();
+            }
             if (chkEnabled4.IsChecked == true)
             {
                 string stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
-                string stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound4.SelectedValue.ToString() + "\" --loop  --fullscreen --qt-fullscreen-screennumber=4";
+                string stTemp = " --aout=waveout --waveout-audio-device=\"" + stSounddevice + "\" --loop  --fullscreen --qt-fullscreen-screennumber=3";
                 if (cmbRot4.Text != "none")
                 {
                     stTemp += " :vout-filter=transform --video-filter \"transform{ true}\" --transform-type=" + cmbRot4.Text;
@@ -969,7 +989,7 @@ namespace VideoControl
 
         private void chkToggle_Unchecked(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.togglesound = true;
+            Properties.Settings.Default.togglesound = false;
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Upgrade();
         }
@@ -1004,6 +1024,43 @@ namespace VideoControl
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Upgrade();
 
+        }
+
+        private void btnClearLogo_Click(object sender, RoutedEventArgs e)
+        {
+            lblLogo1.Content = "";
+            stLogo1 = "";
+            Properties.Settings.Default.Logo1 = "";
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
+
+        }
+
+        private void btnClearLogo3_Click(object sender, RoutedEventArgs e)
+        {
+            lblLogo3.Content = "";
+            stLogo3 = "";
+            Properties.Settings.Default.Logo3 = "";
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
+        }
+
+        private void btnClearLogo2_Click(object sender, RoutedEventArgs e)
+        {
+            lblLogo2.Content = "";
+            stLogo2 = "";
+            Properties.Settings.Default.Logo2 = "";
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
+        }
+
+        private void btnClearLogo4_Click(object sender, RoutedEventArgs e)
+        {
+            lblLogo4.Content = "";
+            stLogo4 = "";
+            Properties.Settings.Default.Logo4 = "";
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
         }
     }
 }

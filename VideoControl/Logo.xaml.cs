@@ -47,7 +47,7 @@ namespace VideoControl
             var allScreens = System.Windows.Forms.Screen.AllScreens.ToList();
             if (allScreens.Count >= iScreen)
             {
-                return allScreens[iScreen];
+                return allScreens[iScreen-1];
             }
             else
             {
