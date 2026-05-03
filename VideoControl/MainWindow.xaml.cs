@@ -110,7 +110,7 @@ namespace VideoControl
                 }
                 string stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
                 string stTemp = " --aout=waveout --waveout-audio-device=\"" + stSounddevice + "\" --loop  --fullscreen --qt-fullscreen-screennumber=0";
-                if (cmbRot1.Text != "none")
+                if ((cmbRot1.Text != "none") && (cmbRot1.Text != ""))
                 {
                     stTemp += " :vout-filter=transform --video-filter \"transform{ true}\" --transform-type=" + cmbRot1.Text;
                 }
@@ -247,7 +247,7 @@ namespace VideoControl
                 }
                 string stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
                 string stTemp = " --aout=waveout --waveout-audio-device=\"" + stSounddevice + "\" --loop  --fullscreen --qt-fullscreen-screennumber=1";
-                if (cmbRot2.Text != "none")
+                if ((cmbRot2.Text != "none") && (cmbRot2.Text != ""))
                 {
                     stTemp += " :vout-filter=transform --video-filter \"transform{ true}\" --transform-type=" + cmbRot2.Text;
                 }
@@ -367,36 +367,13 @@ namespace VideoControl
         private void StartAllVideos()
         {
             string stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
-            string stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound1.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=0  --directx-device=\"\\\\.\\DISPLAY0\" ";
+            string stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound1.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=0 ";
             if ((chkToggle.IsChecked == true) && iTurn % 2 == 1)
             {
-                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound1a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=0  --directx-device=\"\\\\.\\DISPLAY0\" ";
+                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound1a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=0 ";
             }
 
-            if (cmbRot2.Text != "none")
-            {
-                stTemp += " :vout-filter=transform --video-filter \"transform{ true}\" --transform-type=" + cmbRot2.Text;
-            }
-            foreach (string st in stFiles2)
-            {
-                stTemp += " \"" + st + "\" \"" + Directory.GetCurrentDirectory() + "\\black.png\"";
-            }
-
-            if (chkEnabled2.IsChecked == true)
-            {
-                ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.FileName = stProg;
-                startInfo.Arguments = stTemp;
-                Process.Start(startInfo);
-            }
-            stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
-            stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound2.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=1 --directx-device=\"\\\\.\\DISPLAY1\" ";
-            if ((chkToggle.IsChecked == true) && iTurn % 2 == 1)
-            {
-                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound2a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=1 --directx-device=\"\\\\.\\DISPLAY1\" ";
-            }
-
-            if (cmbRot1.Text != "none")
+            if ((cmbRot1.Text != "none") && (cmbRot1.Text != ""))
             {
                 stTemp += " :vout-filter=transform --video-filter \"transform{ true}\" --transform-type=" + cmbRot1.Text;
             }
@@ -404,6 +381,7 @@ namespace VideoControl
             {
                 stTemp += " \"" + st + "\" \"" + Directory.GetCurrentDirectory() + "\\black.png\"";
             }
+
             if (chkEnabled1.IsChecked == true)
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo();
@@ -412,13 +390,35 @@ namespace VideoControl
                 Process.Start(startInfo);
             }
             stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
-            stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound3.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=2 --directx-device=\"\\\\.\\DISPLAY2\" ";
+            stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound2.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=1 ";
             if ((chkToggle.IsChecked == true) && iTurn % 2 == 1)
             {
-                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound3a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=2 --directx-device=\"\\\\.\\DISPLAY2\" ";
+                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound2a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=1 ";
             }
 
-            if (cmbRot3.Text != "none")
+            if ((cmbRot2.Text != "none") && (cmbRot2.Text != ""))
+            {
+                stTemp += " :vout-filter=transform --video-filter \"transform{ true}\" --transform-type=" + cmbRot2.Text;
+            }
+            foreach (string st in stFiles2)
+            {
+                stTemp += " \"" + st + "\" \"" + Directory.GetCurrentDirectory() + "\\black.png\"";
+            }
+            if (chkEnabled2.IsChecked == true)
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.FileName = stProg;
+                startInfo.Arguments = stTemp;
+                Process.Start(startInfo);
+            }
+            stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
+            stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound3.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=2 ";
+            if ((chkToggle.IsChecked == true) && iTurn % 2 == 1)
+            {
+                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound3a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=2 ";
+            }
+
+            if ((cmbRot3.Text != "none") && (cmbRot3.Text != ""))
             {
                 stTemp += " :vout-filter=transform --video-filter \"transform{ true}\" --transform-type=" + cmbRot3.Text;
             }
@@ -434,13 +434,13 @@ namespace VideoControl
                 Process.Start(startInfo);
             }
             stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
-            stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound4.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=3 --directx-device=\"\\\\.\\DISPLAY3\" ";
+            stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound4.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=3 ";
             if ((chkToggle.IsChecked == true) && iTurn % 2 == 1)
             {
-                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound4a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=3 --directx-device=\"\\\\.\\DISPLAY3\" ";
+                stTemp = " --aout=waveout --waveout-audio-device=\"" + cmbSound4a.Text + "\" --loop  --fullscreen --qt-fullscreen-screennumber=3 ";
             }
 
-            if (cmbRot4.Text != "none")
+            if ((cmbRot4.Text != "none") && (cmbRot4.Text != ""))
             {
                 stTemp += " :vout-filter=transform --video-filter \"transform{ true}\" --transform-type=" + cmbRot4.Text;
             }
@@ -787,7 +787,7 @@ namespace VideoControl
             {
                 string stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
                 string stTemp = " --aout=waveout --waveout-audio-device=\"" + stSounddevice + "\" --loop  --fullscreen --qt-fullscreen-screennumber=2";
-                if (cmbRot3.Text != "none")
+                if ((cmbRot3.Text != "none") && (cmbRot3.Text != ""))
                 {
                     stTemp += " :vout-filter=transform --video-filter \"transform{ true}\" --transform-type=" + cmbRot3.Text;
                 }
@@ -891,7 +891,7 @@ namespace VideoControl
             {
                 string stProg = "\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\"";
                 string stTemp = " --aout=waveout --waveout-audio-device=\"" + stSounddevice + "\" --loop  --fullscreen --qt-fullscreen-screennumber=3";
-                if (cmbRot4.Text != "none")
+                if ((cmbRot4.Text != "none") && (cmbRot4.Text != ""))
                 {
                     stTemp += " :vout-filter=transform --video-filter \"transform{ true}\" --transform-type=" + cmbRot4.Text;
                 }

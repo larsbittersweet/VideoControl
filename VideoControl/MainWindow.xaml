@@ -22,7 +22,7 @@
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="268" Margin="290,344,0,0" VerticalAlignment="Top" Width="474"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="269" Margin="290,19,0,0" VerticalAlignment="Top" Width="474"/>
         <Button x:Name="btnVid2_Start_all" Content="Start all Videos" HorizontalAlignment="Left" Margin="30,666,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnVid2_Start_all_Click"/>
-        <Label x:Name="label" Content="VideoControl V 1.3 by Lars* Kollros" HorizontalAlignment="Left" Margin="588,744,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="VideoControl V 1.4 by Lars* Kollros" HorizontalAlignment="Left" Margin="588,744,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cmbSound1" HorizontalAlignment="Left" Margin="379,293,0,0" VerticalAlignment="Top" Width="248" SelectionChanged="cmbSound1_SelectionChanged"/>
         <Label x:Name="label1" Content="Sound device:" HorizontalAlignment="Left" Margin="290,289,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.518,-0.231"/>
         <ComboBox x:Name="cmbSound2" HorizontalAlignment="Left" Margin="379,617,0,0" VerticalAlignment="Top" Width="248" SelectionChanged="cmbSound2_SelectionChanged"/>
