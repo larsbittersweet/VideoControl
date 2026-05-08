@@ -22,7 +22,7 @@
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="268" Margin="290,344,0,0" VerticalAlignment="Top" Width="474"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="269" Margin="290,19,0,0" VerticalAlignment="Top" Width="474"/>
         <Button x:Name="btnVid2_Start_all" Content="Start all Videos" HorizontalAlignment="Left" Margin="30,666,0,0" VerticalAlignment="Top" Width="244" Height="58" FontSize="18" Click="btnVid2_Start_all_Click"/>
-        <Label x:Name="label" Content="VideoControl V 1.4 by Lars* Kollros" HorizontalAlignment="Left" Margin="588,744,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="VideoControl V 1.5 by Lars* Kollros" HorizontalAlignment="Left" Margin="588,744,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cmbSound1" HorizontalAlignment="Left" Margin="379,293,0,0" VerticalAlignment="Top" Width="248" SelectionChanged="cmbSound1_SelectionChanged"/>
         <Label x:Name="label1" Content="Sound device:" HorizontalAlignment="Left" Margin="290,289,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.518,-0.231"/>
         <ComboBox x:Name="cmbSound2" HorizontalAlignment="Left" Margin="379,617,0,0" VerticalAlignment="Top" Width="248" SelectionChanged="cmbSound2_SelectionChanged"/>
@@ -97,9 +97,9 @@
             <ComboBoxItem Content="hflip"/>
             <ComboBoxItem Content="vflip"/>
         </ComboBox>
-        <CheckBox x:Name="chkToggle" Content="toggle sound" HorizontalAlignment="Left" Margin="824,709,0,0" VerticalAlignment="Top" Checked="chkToggle_Checked" Unchecked="chkToggle_Unchecked"/>
-        <Label x:Name="label7" Content="Toggletime:" HorizontalAlignment="Left" Margin="821,729,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.355,1.058"/>
-        <TextBox x:Name="txtTime" HorizontalAlignment="Left" Height="23" Margin="893,733,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" LostFocus="txtTime_LostFocus"/>
+        <CheckBox x:Name="chkToggle" Content="toggle sound" HorizontalAlignment="Left" Margin="824,682,0,0" VerticalAlignment="Top" Checked="chkToggle_Checked" Unchecked="chkToggle_Unchecked"/>
+        <Label x:Name="label7" Content="Toggletime 1:" HorizontalAlignment="Left" Margin="821,702,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.355,1.058"/>
+        <TextBox x:Name="txtTime1" HorizontalAlignment="Left" Height="23" Margin="900,705,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" LostFocus="txtTime_LostFocus"/>
         <ComboBox x:Name="cmbSound1a" HorizontalAlignment="Left" Margin="379,317,0,0" VerticalAlignment="Top" Width="248" SelectionChanged="cmbSound1a_SelectionChanged"/>
         <ComboBox x:Name="cmbSound3a" HorizontalAlignment="Left" Margin="1165,317,0,0" VerticalAlignment="Top" Width="248" SelectionChanged="cmbSound3a_SelectionChanged"/>
         <ComboBox x:Name="cmbSound4a" HorizontalAlignment="Left" Margin="1165,640,0,0" VerticalAlignment="Top" Width="248" SelectionChanged="cmbSound4a_SelectionChanged"/>
@@ -108,6 +108,8 @@
         <Button x:Name="btnClearLogo3" Content="Clear Logo 3" HorizontalAlignment="Left" Margin="816,169,0,0" VerticalAlignment="Top" Width="244" Height="40" FontSize="18" Click="btnClearLogo3_Click"/>
         <Button x:Name="btnClearLogo2" Content="Clear Logo 2" HorizontalAlignment="Left" Margin="30,494,0,0" VerticalAlignment="Top" Width="244" Height="40" FontSize="18" Click="btnClearLogo2_Click"/>
         <Button x:Name="btnClearLogo4" Content="Clear Logo 4" HorizontalAlignment="Left" Margin="816,494,0,0" VerticalAlignment="Top" Width="244" Height="40" FontSize="18" Click="btnClearLogo4_Click"/>
+        <Label x:Name="label7_Kopieren" Content="Toggletime 2:" HorizontalAlignment="Left" Margin="821,724,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.355,1.058"/>
+        <TextBox x:Name="txtTime2" HorizontalAlignment="Left" Height="23" Margin="900,727,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" LostFocus="txtTime2_LostFocus"/>
 
     </Grid>
 </Window>

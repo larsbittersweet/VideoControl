@@ -12,7 +12,7 @@ namespace VideoControl.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.14.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -285,12 +285,12 @@ namespace VideoControl.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("00:00:00")]
-        public global::System.TimeSpan toggletime {
+        public global::System.TimeSpan toggletime1 {
             get {
-                return ((global::System.TimeSpan)(this["toggletime"]));
+                return ((global::System.TimeSpan)(this["toggletime1"]));
             }
             set {
-                this["toggletime"] = value;
+                this["toggletime1"] = value;
             }
         }
         
@@ -339,6 +339,18 @@ namespace VideoControl.Properties {
             }
             set {
                 this["Soundcard4a"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00:00:00")]
+        public global::System.TimeSpan toggletime2 {
+            get {
+                return ((global::System.TimeSpan)(this["toggletime2"]));
+            }
+            set {
+                this["toggletime2"] = value;
             }
         }
     }

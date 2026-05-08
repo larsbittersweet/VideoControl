@@ -74,6 +74,9 @@ namespace VideoControl
         const int NONE = 0;
         const int VIDEO = 1;
         const int LOGO = 2;
+        TimeSpan time1 = TimeSpan.FromSeconds(0);
+        TimeSpan time2 = TimeSpan.FromSeconds(0);
+
         private void btnVid1_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog of = new OpenFileDialog();
@@ -338,25 +341,41 @@ namespace VideoControl
 
         private void btnVid2_Start_all_Click(object sender, RoutedEventArgs e)
         {
-            TimeSpan ts = TimeSpan.FromSeconds(0);
+            TimeSpan ts1 = TimeSpan.FromSeconds(0);
+            TimeSpan ts2 = TimeSpan.FromSeconds(0);
             if (chkToggle.IsChecked == true)
             {
                 int i = 0;
-                if (int.TryParse(txtTime.Text, out i))
+                if (int.TryParse(txtTime1.Text, out i))
                 {
-                    ts = TimeSpan.FromSeconds(i);
+                    ts1 = TimeSpan.FromSeconds(i);
                 }
                 else
                 {
-                    MessageBox.Show("invalid time");
+                    MessageBox.Show("invalid time 1");
                 }
-                if (ts == TimeSpan.FromSeconds(0))
+                if (int.TryParse(txtTime2.Text, out i))
                 {
-                    MessageBox.Show("invalid time");
+                    ts2 = TimeSpan.FromSeconds(i);
                 }
                 else
                 {
-                    dispatcherTimer.Interval = ts;
+                    MessageBox.Show("invalid time 2");
+                }
+                if (ts1 == TimeSpan.FromSeconds(0))
+                {
+                    MessageBox.Show("invalid time 1");
+                }
+                else if (ts2 == TimeSpan.FromSeconds(0))
+                {
+                    MessageBox.Show("invalid time 2");
+                }
+                else
+                {
+                    time1 = ts1;
+                    time2 = ts2;
+                    iTurn = 0;
+                    dispatcherTimer.Interval = time1;
                     dispatcherTimer.Start();
                 }
             }
@@ -487,7 +506,8 @@ namespace VideoControl
                 cmbRot3.Text = Properties.Settings.Default.rotation3;
                 cmbRot4.Text = Properties.Settings.Default.rotation4;
                 chkToggle.IsChecked = Properties.Settings.Default.togglesound;
-                txtTime.Text = Properties.Settings.Default.toggletime.TotalSeconds.ToString();
+                txtTime1.Text = Properties.Settings.Default.toggletime1.TotalSeconds.ToString();
+                txtTime2.Text = Properties.Settings.Default.toggletime2.TotalSeconds.ToString();
                 if ((Properties.Settings.Default.Files1 != null) && (Properties.Settings.Default.Files1.Count > 0))
                 {
                     foreach (string st in Properties.Settings.Default.Files1)
@@ -581,9 +601,20 @@ namespace VideoControl
         }
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
+            dispatcherTimer.Stop();
+            iTurn++;
+            if (iTurn % 2 == 0)
+            {
+                dispatcherTimer.Interval = time1;
+                dispatcherTimer.Start();
+            }
+            else
+            {
+                dispatcherTimer.Interval = time2;
+                dispatcherTimer.Start();
+            }
             StopAll();
             StartAllVideos();
-            iTurn++;
         }
 
         public static WAVEOUTCAPS[] GetDevCapsPlayback()
@@ -997,12 +1028,12 @@ namespace VideoControl
         private void txtTime_LostFocus(object sender, RoutedEventArgs e)
         {
             int i = 0;
-            if (int.TryParse(txtTime.Text, out i))
+            if (int.TryParse(txtTime1.Text, out i))
             {
                 if (i > 0)
                 {
                     
-                    Properties.Settings.Default.toggletime = TimeSpan.FromSeconds( i);
+                    Properties.Settings.Default.toggletime1 = TimeSpan.FromSeconds( i);
                     Properties.Settings.Default.Save();
                     Properties.Settings.Default.Upgrade();
                 }
@@ -1061,6 +1092,22 @@ namespace VideoControl
             Properties.Settings.Default.Logo4 = "";
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Upgrade();
+        }
+
+        private void txtTime2_LostFocus(object sender, RoutedEventArgs e)
+        {
+            int i = 0;
+            if (int.TryParse(txtTime2.Text, out i))
+            {
+                if (i > 0)
+                {
+
+                    Properties.Settings.Default.toggletime2 = TimeSpan.FromSeconds(i);
+                    Properties.Settings.Default.Save();
+                    Properties.Settings.Default.Upgrade();
+                }
+            }
+
         }
     }
 }
